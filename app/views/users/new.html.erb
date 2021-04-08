@@ -1,0 +1,61 @@
+<div class="container d-flex justify-content-center align-items-center mt-3">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <div class="card shadow">
+            <%# <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" alt="" class="card-img-top" /> %>
+            <%# https://images.unsplash.com/photo-1528832253532-9c22462c0086?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=747&q=80 %>
+            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" alt="" height="80%" class="card-img-top" />
+                <div class="card-body">
+                    <h3 class="card-title">Sign Up</h3>
+                    <%= form_with(model: @user, class:"validfated-form", local: true )  do |f| -%>
+            
+                    <%# <form action="/login" method="post" class="validfated-form" nonvalidate> %>
+                        <div class="mb-3">
+                            <%# <label class="form-label" for="username">Username</label> %>
+                            <%= f.label :username, class: "form-label" -%>
+
+                            <%# <input class="form-control" id="username" name="username" type="text" autofocus required> %>
+                            <%= f.text_field :username, class: "form-control shadow rounded", placeholder:"username" -%>
+                            
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <%# <label class="form-label" for="password">Password</label> %>
+                            <%= f.label :email, class: "form-label" -%>
+
+                            <%# <input class="form-control" id="password" name="password" type="password" required> %>
+                            <%= f.email_field :email, class: "form-control shadow rounded", placeholder:"Enter Email" -%>
+                            
+                            
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+        
+                        <div class="mb-3">
+                            <%# <label class="form-label" for="password">Password</label> %>
+                            <%= f.label :password, class: "form-label" -%>
+
+                            <%# <input class="form-control" id="password" name="password" type="password" required> %>
+                            <%= f.password_field :password, class: "form-control shadow rounded", placeholder:"Enter Password" -%>
+                            
+                            
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+                        <button class="btn btn-success btn-block">Sign In</button>
+
+
+
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

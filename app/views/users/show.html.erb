@@ -1,0 +1,16 @@
+<div id="page-content">
+    <h1 class="text-center mt-4"><%= @user.username %>'s Profile</h1>
+
+    <img src="https://images.unsplash.com/photo-1596199757746-4d68503325ed?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=877&q=80" 
+    class="img-fluid rounded shadow mx-auto d-block" width="25%" height="25%"  alt="...">
+
+    <% if logged_in? && current_user == @user%>
+        <div class="text-center mt-4">
+            <%= link_to "Edit Your Profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+        </div>
+    <% end %>
+    
+<</div>
+
+
+

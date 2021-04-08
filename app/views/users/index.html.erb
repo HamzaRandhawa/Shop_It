@@ -1,0 +1,17 @@
+<div id="page-content">
+    <h1 class="text-center mt-4">Users</h1>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <% @users.each do |user|-%>
+                <h2> <%= user.username %> </h2>
+                <div class="card-footer text-muted">
+                    <small>
+                        Joined <%= time_ago_in_words(user.created_at)%> ago
+                    </small>
+                </div>
+            <% end -%>
+        </div>
+    </div>
+
+</div>
