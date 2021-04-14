@@ -8,4 +8,10 @@
 #   User.create(username: 'Hamza', email: 'hamzarandhawa553@gmail.com', password: 'pass')
 #   User.create(username: 'Umer', email: 'umerrandhawa99@gmail.com', password: 'pass')
 
-User.create(username: 'Ali', email: 'a@a.com', password: 'pass');
+# User.create(username: 'Ali', email: 'a@a.com', password: 'pass');
+
+Product.create(name: 'Strawberry Plant', price: 10.99);
+Product.create(name: 'Orange Citrus Plant', price: 15.99);
+Product.create(name: 'Codiaeum Plant', price: 24.49);
+
+
