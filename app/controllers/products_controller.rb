@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 
         # require the Top level keys of article and permits title and description from there
         # values = params.require(:article).permit(:title, :description); #White Listing
-        @product = Product.new(white_listed_params);
+        # @product = Product.new(white_listed_params);
         
         # img_values = params.require(:article).permit(:image);
         # img_values.foreach do|img|
@@ -33,14 +33,14 @@ class ProductsController < ApplicationController
         # end
         # # @article.user = current_user;
 
-        if @product.save()
-            flash[:notice] = "Product has been created successfully!"
-            # render plain: @article.inspect
-            redirect_to product_path(@product);     # WOWWW! It's defining paths automatically. 
-            # redirect_to @article;     # Same effect... JUST WOWWWW!!!
-        else
-            render 'new'
-         end
+        # if @product.save()
+        #     flash[:notice] = "Product has been created successfully!"
+        #     # render plain: @article.inspect
+        #     redirect_to product_path(@product);     # WOWWW! It's defining paths automatically. 
+        #     # redirect_to @article;     # Same effect... JUST WOWWWW!!!
+        # else
+        #     render 'new'
+        #  end
     end
 
     def edit 
