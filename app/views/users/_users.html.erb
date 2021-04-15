@@ -1,0 +1,26 @@
+ <div class="container">
+        <div class="row justify-content-md-center">
+            <% @users.each do |user| %>
+                <div class="col-8 mt-4">
+                    <div class="card text-center shadow mb-5 bg-white rounded">
+                        <div class="card-header font-italic">
+                            <%= user.admin? ? "Admin" : "Csutomer"%> 
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= link_to user.username, product_path(user), class: 'text-success'%></h5>
+                            <p class="card-text"><b>Email: </b>$<%=user.email%></p>
+
+                            <a href="<%=user_path(user) %>" class="btn btn-outline-success ">View Profile</a>
+                        
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>
+                                Created <%= time_ago_in_words(user.created_at)%> ago,
+                                Edited <%= time_ago_in_words(user.updated_at)%> ago
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            <% end -%>
+        </div>
+    </div>

@@ -24,5 +24,11 @@ class ApplicationController < ActionController::Base
             redirect_to login_path;
         end
     end
+    def require_logout
+        if logged_in? 
+            flash[:alert] = "You must be Logged Out to Perform this action.";
+            redirect_to root_path;
+        end
+    end
 
 end

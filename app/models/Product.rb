@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
     # "dependent: :destroy" to destroy dependents.
-    # has_many :articles, dependent: :destroy
+    # has_many :images, dependent: :destroy
 
     # serialize :category
 

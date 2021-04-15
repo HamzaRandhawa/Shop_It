@@ -58,3 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ------------------------------------------------------------------------------------------------
 
 gem 'hirb', '~>0.7.3'
+
+gem 'image_processing', '~> 1.2'
+gem 'shrine', '~> 3.3'
+gem "shrine-cloudinary", "~> 1.1"
+gem 'dotenv-rails'
