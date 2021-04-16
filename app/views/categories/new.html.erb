@@ -1,14 +1,13 @@
 <%= render 'layouts/navigation'%>
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-6 offset-3">
-            <h1 class="text-center">Edit Product</h1>
+            <h1 class="text-center">New Category</h1>
 
             <%# <form action="/products" method="POST" class="validated-form" enctype="multipart/form-data" novalidate > %>
             <%# <form action="/products" method="POST" class="validated-form" novalidate > %>
 
-            <%= form_with(model: @product, method: 'PATCH', class:"validfated-form", local: true  )  do |f| -%>
+            <%= form_with(model: @category, method: 'POST', class:"validfated-form", local: true  )  do |f| -%>
 
                 <div class="mb-3">
                     <%= f.label :name, class: "form-label" -%>
@@ -16,21 +15,6 @@
                     <%= f.text_field :name, class: "form-control shadow rounded", placeholder:"Name" -%>
 
                     <div class="valid-feedback">Looks Good!</div>
-                </div>
-                
-                <div class="mb-3">
-                    <%= f.label :price , class: "form-label" -%>
-
-                    <%# <label class="form-label" for="price">Product Price</label> %>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="price-tag">$</span>
-                        <%# <input id="price" type="text" class="form-control" name="price" placeholder="0.00" aria-label="Price" aria-describedby="price-tag" required> %>
-                        <%= f.number_field :price, class: "form-control shadow rounded", placeholder:"0.00" -%>
-                        
-                        <div class="valid-feedback">
-                            Looks Good!
-                        </div>
-                    </div>
                 </div>
              
                 <div class="mb-3">
@@ -42,7 +26,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <%= f.submit(@product.new_record? ? "Add Product" :"Save Changes", class: "btn btn-success btn-block")-%>
+                    <%= f.submit(@category.new_record? ? "Add Category" :"Save Changes", class: "btn btn-success btn-block")-%>
                 </div>
             <%# </form> %>
             <% end %>

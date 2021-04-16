@@ -8,10 +8,12 @@
 #   User.create(username: 'Hamza', email: 'hamzarandhawa553@gmail.com', password: 'pass')
 #   User.create(username: 'Umer', email: 'umerrandhawa99@gmail.com', password: 'pass')
 
-# User.create(username: 'Ali', email: 'a@a.com', password: 'pass');
+# User.create(username: 'Zaid', email: 'z@z.com', password: 'pass', admin: true);
 
-Product.create(name: 'Strawberry Plant', price: 10.99);
-Product.create(name: 'Orange Citrus Plant', price: 15.99);
-Product.create(name: 'Codiaeum Plant', price: 24.49);
+Category.create(name: 'Plants & Gardening', description: 'Gardening is the practice of growing and cultivating plants as part of horticulture. In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.');
+
+# Product.create(name: 'Strawberry Plant', price: 10.99);
+# Product.create(name: 'Orange Citrus Plant', price: 15.99);
+# Product.create(name: 'Codiaeum Plant', price: 24.49);
 
 

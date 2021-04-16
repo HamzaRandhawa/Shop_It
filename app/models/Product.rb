@@ -9,6 +9,10 @@ class Product < ApplicationRecord
     #     product.category= [] if patient.category == nil
     # end
 
+    
+    has_many :product_categories
+    has_many :categories, through: :product_categories
+
     validates :name, presence: true, length: { minimum: 1, maximum: 35 }
 
     validates :price, presence: true

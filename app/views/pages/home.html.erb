@@ -1,9 +1,9 @@
 
 <div  class="about-body d-flex text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
-                <a href="/about" id="about_logo"> <h3 class="float-md-left mb-0 ">OpenShop</h3> </a>
+                <a href="/about" id="about_logo"> <h3 class="float-md-left mb-0 "> <span id="open">Open</span><span id="shop">Shop</span></h3> </a>
 
                 <%# <nav class="navbar navbar-light bg-light"> %>
                     <%# <div class="container-fluid"> %>
@@ -12,12 +12,13 @@
                 <%# </nav> %>
 
                 <nav class="nav nav-masthead justify-content-center float-md-right">
-                        <form class="form-inline d-flex my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                    <form class="form-inline d-flex my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
 
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/categories">Categories</a>
                     <a class="nav-link" href="/products">Products</a>
                     <% if !current_user  %>
                         <a class="nav-link" href="/login">Login</a>
@@ -31,29 +32,13 @@
             </div>
         </header>
         <main class="px-3 mt-5">
-            <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <%# <img class="d-block w-100" src="https://qph.fs.quoracdn.net/main-qimg-8307afd9e135585577ee3ae730e4b8aa" alt="First slide"> %>
-                        
-                        <img class="d-block w-100" src="https://i.pinimg.com/originals/82/08/a6/8208a65c13b2b625be80867253386ad8.png" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(46).jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+        <div class="cover-container mx-auto">
+
+            <%= render 'layouts/categories_carousel'%>
+
+
+    
+        </div>
         </main>
 
         <footer class="mt-auto text-white-50">

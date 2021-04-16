@@ -46,7 +46,16 @@ body {
 
 #page-content {
   flex: 1 0 auto;
+//   background-color: lightgrey;
+//   background-color: grey;
+}
+
+body
+{
+    // background-color: grey;
   background-color: lightgrey;
+  height: 100%;
+
 }
 
 #sticky-footer {
@@ -57,3 +66,28 @@ body {
     margin: auto;
     width: 49%;
 }
+
+#product_carousel
+{
+    margin: auto;
+    width: 85%;
+}
+
+#open
+{
+    font-weight: bold;
+    color: green;
+    font-style: italic;
+}
+
+// .custom_footer
+// {
+
+//     // position: -webkit-sticky; /* Safari */
+//     // position: sticky;
+// //   top: 0;
+
+//     // position:fixed;
+//     // width: 100%;
+//     // bottom: 0;
+// }

@@ -1,13 +1,14 @@
 
 <div  class="about-body d-flex text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column ">
         <header class="mb-auto">
             <div>
-                <a href="/about" id="about_logo" > <h3 class="float-md-left mb-0 ">OpenShop</h3> </a>
+                <a href="/about" id="about_logo" > <h3 class="float-md-left mb-0 "><span id="open">Open</span><span id="shop">Shop</span></h3> </a>
 
                 <nav class="nav nav-masthead justify-content-center float-md-right">
                     <a class="nav-link"  href="/">Home</a>
-                    <a class="nav-link" href="/campgrounds">Products</a>
+                    <a class="nav-link" href="/categories">Categories</a>
+                    <a class="nav-link" href="/products">Products</a>
                     <% if !current_user  %>
                         <a class="nav-link" href="/login">Login</a>
                         <a class="nav-link" href="/signup">Register</a>
@@ -19,10 +20,10 @@
             </div>
         </header>
         <main class="px-3">
-            <h1>OpenShop</h1>
-            <p class="lead"> Welcome to OpenShop! <br> Jump right in and explore our many campgrounds. <br>
-                Feel free to share some of your own and comment on others!</p>
-            <a href="/campgrounds" class="btn_about btn btn-lg font-weight-bold border-white bg-white">
+            <h1><span id="open">Open</span><span id="shop">Shop</span></h1>
+            <p class="lead"> Welcome to OPENShop! <br> Jump right in and explore our new products to buy. <br>
+                Shop is opened and shop is brought to your home.</p>
+            <a href="/products" class="btn_about btn btn-lg font-weight-bold border-white bg-white">
                 Start Shopping</a>
         </main>
 

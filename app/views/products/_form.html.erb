@@ -1,14 +1,12 @@
-<%= render 'layouts/navigation'%>
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-6 offset-3">
-            <h1 class="text-center">Edit Product</h1>
+            <h1 class="text-center">New Product</h1>
 
             <%# <form action="/products" method="POST" class="validated-form" enctype="multipart/form-data" novalidate > %>
             <%# <form action="/products" method="POST" class="validated-form" novalidate > %>
 
-            <%= form_with(model: @product, method: 'PATCH', class:"validfated-form", local: true  )  do |f| -%>
+            <%= form_with(model: @product, method: 'POST', class:"validfated-form", local: true  )  do |f| -%>
 
                 <div class="mb-3">
                     <%= f.label :name, class: "form-label" -%>
@@ -38,6 +36,17 @@
 
                     <%= f.text_area :description, class: "form-control shadow rounded", placeholder:"Tell About the Product..." -%>
                     
+                    <div class="valid-feedback">Looks Good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <%= f.label :category, class: "form-label" -%>
+
+                    <%= f.collection_select(:category_ids, Category.all, :id, :name,
+                    {prompt: "Make Categories Selection:"}, 
+                    { multiple: true, size:3 , class: "custom-select form-control shadow rounded"} 
+                    )  %>
+
                     <div class="valid-feedback">Looks Good!</div>
                 </div>
 
