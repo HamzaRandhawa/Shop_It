@@ -1,14 +1,20 @@
  <div class="container">
-        <div class="row justify-content-md-center">
-            <% @categories.each do |category| %>
-                <div class="col-8 mt-4">
-                    <div class="card text-center shadow mb-5 bg-white rounded">
+        <% @categories.each do |category| %>
+
+            <div class="card text-center shadow mb-5 bg-white rounded">
+                <div class="row justify-content-md-center">
+
+                    <div class="col-md-4">
+                        <img class="img-fluid" src="https://gardenseason.com/wp-content/uploads/2019/09/gardener-planting-flowers-gardening-skills-ss-featured.jpg" alt="">
+                    </div>
+
+                    <div class="col-6 mt-4">
                         <div class="card-header font-italic">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><%= link_to category.name, category_path(category), class: 'text-success'%></h5>
 
-                            <a href="<%=category_path(category) %>" class="btn btn-outline-success ">category Details</a>
+                            <a href="<%=category_path(category) %>" class="btn btn-outline-info ">category Details</a>
                         
                         </div>
                         <div class="card-footer text-muted">
@@ -19,6 +25,7 @@
                         </div>
                     </div>
                 </div>
-            <% end -%>
-        </div>
+            </div>
+
+        <% end -%>
     </div>

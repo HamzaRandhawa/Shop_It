@@ -1,0 +1,27 @@
+<%= render 'layouts/navigation'%>
+
+<h4 class="ui center aligned medium icon header">
+    <i class="circular blue coffee icon"></i>
+    Say Something...
+</h4>
+
+<div class="row">
+
+    <div class="col-md-8 offset-md-2">
+
+        <div class="ui fluid raised card chatbox">
+
+            <%= render 'layouts/messages/message'%>
+
+            <div class="content" id="messages">
+                <div class="ui feed" id="message-container">
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</div>
+
+

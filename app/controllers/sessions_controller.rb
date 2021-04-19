@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+    before_action :require_logout, only: [:new]
+    before_action :require_login, only: [:create]
+
+
     def new
         
     end
@@ -12,7 +16,8 @@ class SessionsController < ApplicationController
 
             flash[:notice] = "Logged in Successfully";
             # redirect_to user_path(user);    
-            redirect_to users_path();    
+            # redirect_to users_path();    
+            redirect_to root_path
 
         else
             flash.now[:alert] = "Incorrect Email or Password";

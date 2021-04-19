@@ -2,6 +2,9 @@ class User < ApplicationRecord
     before_save {self.email = email.downcase}
     before_save {self.username = username.downcase}
 
+    has_many :messages
+    has_one :cart
+
     # "dependent: :destroy" to destroy dependents.
     # has_many :articles, dependent: :destroy
     validates :username, presence: true, length: { minimum: 3, maximum: 25 }

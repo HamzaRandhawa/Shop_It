@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :require_login, except: [:show, :index, :destroy]
+    before_action :require_login, except: [:show, :index, :destroy, :new]
     before_action :is_authenticated_user, only: [:edit, :update, :destroy]
     before_action :require_logout, only: [:new]
     def index
@@ -26,13 +26,14 @@ class UsersController < ApplicationController
         @user = User.new(values);
         
         # @article.user = User.first;
-
+        
         if @user.save()
             flash[:notice] = "Thanks for joining! Welcome #{@user.username}!"
             session[:user_id] = @user.id;
 
             # render plain: @user.inspect
-            redirect_to user_path(@user);     # WOWWW! It's defining paths automatically. 
+            redirect_to root_path
+            # redirect_to user_path(@user);     # WOWWW! It's defining paths automatically. 
             # redirect_to @article;     # Same effect... JUST WOWWWW!!!
         else
             render 'new'
@@ -65,7 +66,8 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy();
-        session[:user_id] = @user.id;
+        # session[:user_id] = @user.id;
+        session[:user_id] = nil;
         flash[:notice]= "Account and all associated Articles Deleted.";
         redirect_to articles_path;
     end

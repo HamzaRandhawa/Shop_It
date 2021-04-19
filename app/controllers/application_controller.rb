@@ -4,7 +4,23 @@ class ApplicationController < ActionController::Base
     # available in our views (as it is not helper mothods now. Solution??) 
     # Helper methods shows in Views only.
 
-    helper_method :current_user, :logged_in?, :require_login     #Now it's helper method too.
+    helper_method :current_user, :logged_in?, :require_login, :current_cart     #Now it's helper method too.
+
+    def current_cart
+        if session[:cart_id]
+            # Memoization
+            @current_cart ||= Cart.find(session[:cart_id])
+            # session[:cart_id] = nil;
+        end
+        if session[:cart_id].nil?
+            cart = Cart.create({user_id: current_user.id})
+            if cart.save();
+                @current_cart = cart;
+                session[:cart_id] = @current_cart.id
+            end
+        end
+        @current_cart
+    end 
 
     def current_user
         if session[:user_id]
