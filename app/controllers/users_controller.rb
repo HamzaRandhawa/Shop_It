@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :require_login, except: [:show, :index, :destroy, :new]
+    before_action :require_login, except: [:show, :index, :destroy, :create, :new]
     before_action :is_authenticated_user, only: [:edit, :update, :destroy]
     before_action :require_logout, only: [:new]
     def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
          # render plain: params[:article]
 
         # require the Top level keys of users and permits username, email and password from there
-        values = params.require(:user).permit(:username, :email, :password); #White Listing
+        values = params.require(:user).permit(:username, :email, :password, :admin); #White Listing
         @user = User.new(values);
         
         # @article.user = User.first;
@@ -48,8 +48,8 @@ class UsersController < ApplicationController
          # render plain: params[:article]
 
         # require the Top level keys of users and permits username, email and password from there
-        values = params.require(:user).permit(:username, :email, :password); #White Listing
-        
+        values = params.require(:user).permit(:username, :email, :password, :admin); #White Listing
+
         # @user = User.find(params[:id]);
 
         # @article.user = User.first;
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
         # session[:user_id] = @user.id;
         session[:user_id] = nil;
         flash[:notice]= "Account and all associated Articles Deleted.";
-        redirect_to articles_path;
+        redirect_to root_path;
     end
 
     private

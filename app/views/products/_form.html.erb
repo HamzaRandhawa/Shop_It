@@ -1,60 +1,62 @@
-<div class="container mt-4">
+
+<div class="container d-flex justify-content-center align-items-center mt-3">
     <div class="row">
-        <div class="col-6 offset-3">
-            <h1 class="text-center">New Product</h1>
+        <div class="col-sm-6 col-md-8 offset-sm-3">
 
-            <%# <form action="/products" method="POST" class="validated-form" enctype="multipart/form-data" novalidate > %>
-            <%# <form action="/products" method="POST" class="validated-form" novalidate > %>
+            <div class="card shadow">
+                <img src="https://neilpatel.com/wp-content/uploads/2017/08/How-To-Generate-Buzz-When-You-Launch-a-New-Product.jpg" alt="" height="80%" class="card-img-top" />
+                <div class="card-body">
+                    <h3 class="card-title text-center">New Product</h3>
 
-            <%= form_with(model: @product, method: 'POST', class:"validfated-form", local: true  )  do |f| -%>
-
-                <div class="mb-3">
-                    <%= f.label :name, class: "form-label" -%>
-
-                    <%= f.text_field :name, class: "form-control shadow rounded", placeholder:"Name" -%>
-
-                    <div class="valid-feedback">Looks Good!</div>
-                </div>
-                
-                <div class="mb-3">
-                    <%= f.label :price , class: "form-label" -%>
-
-                    <%# <label class="form-label" for="price">Product Price</label> %>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="price-tag">$</span>
-                        <%# <input id="price" type="text" class="form-control" name="price" placeholder="0.00" aria-label="Price" aria-describedby="price-tag" required> %>
-                        <%= f.number_field :price, class: "form-control shadow rounded", placeholder:"0.00" -%>
-                        
-                        <div class="valid-feedback">
-                            Looks Good!
+                     <%= form_with(model: @product, method: 'POST', class:"validfated-form", local: true  )  do |f| -%>
+                        <div class="mb-3">
+                            <%= f.label :name, class: "form-label" -%>
+                            <%= f.text_field :name, class: "form-control shadow rounded", placeholder:"Name" -%>
+                            <div class="valid-feedback">Looks Good!</div>
                         </div>
-                    </div>
-                </div>
-             
-                <div class="mb-3">
-                    <%= f.label :description, class: "form-label" -%>
+                        
+                        <div class="mb-3">
+                            <%= f.label :price , class: "form-label" -%>
 
-                    <%= f.text_area :description, class: "form-control shadow rounded", placeholder:"Tell About the Product..." -%>
+                            <%# <label class="form-label" for="price">Product Price</label> %>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="price-tag">$</span>
+                                <%# <input id="price" type="text" class="form-control" name="price" placeholder="0.00" aria-label="Price" aria-describedby="price-tag" required> %>
+                                <%= f.number_field :price, class: "form-control shadow rounded", placeholder:"0.00" -%>
+                                
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                        </div>
                     
-                    <div class="valid-feedback">Looks Good!</div>
+                        <div class="mb-3">
+                            <%= f.label :description, class: "form-label" -%>
+
+                            <%= f.text_area :description, class: "form-control shadow rounded", placeholder:"Tell About the Product..." -%>
+                            
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <%= f.label :category, class: "form-label" -%>
+
+                            <%= f.collection_select(:category_ids, Category.all, :id, :name,
+                            {prompt: "Make Categories Selection:"}, 
+                            { multiple: true, size:3 , class: "custom-select form-control shadow rounded"} 
+                            )  %>
+
+                            <div class="valid-feedback">Looks Good!</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <%= f.submit(@product.new_record? ? "Add Product" :"Save Changes", class: "btn btn-success btn-block")-%>
+                        </div>
+                    <%# </form> %>
+                    <% end %>
                 </div>
 
-                <div class="mb-3">
-                    <%= f.label :category, class: "form-label" -%>
-
-                    <%= f.collection_select(:category_ids, Category.all, :id, :name,
-                    {prompt: "Make Categories Selection:"}, 
-                    { multiple: true, size:3 , class: "custom-select form-control shadow rounded"} 
-                    )  %>
-
-                    <div class="valid-feedback">Looks Good!</div>
-                </div>
-
-                <div class="mb-3">
-                    <%= f.submit(@product.new_record? ? "Add Product" :"Save Changes", class: "btn btn-success btn-block")-%>
-                </div>
-            <%# </form> %>
-            <% end %>
+            </div>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><%= link_to user.username, product_path(user), class: 'text-success'%></h5>
-                            <p class="card-text"><b>Email: </b>$<%=user.email%></p>
+                            <p class="card-text"><b>Email: </b><%=user.email%></p>
 
                             <a href="<%=user_path(user) %>" class="btn btn-outline-success ">View Profile</a>
                         

@@ -16,16 +16,37 @@ class CartsController < ApplicationController
     end
 
     def add_to_cart
+
+        # Find associated product and current cart
+        chosen_product = Product.find(params[:product_id])
+        # current_cart = @current_cart
+
+        # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
+        if current_cart.products.include?(chosen_product)
+            # Find the line_item with the chosen_product
+            @item = current_cart.items.find_by(:product_id => chosen_product)
+            # Iterate the line_item's quantity by one
+            @item.quantity += 1
+        else
+            @item = Item.new({quantity: 1});
+            @item.cart = current_cart
+            @item.product = chosen_product
+        end
+
+        # Save and redirect to cart show path
+        @item.save
+        redirect_to cart_path(current_cart)
+
         # byebug;
         # alert("Adding to Cart");
         # render plain: params[:product_id]
 
         # session[:cart_id] = nil;
 
-        add_item(params[:product_id])
-        current_cart.user = current_user;
+        # add_item(params[:product_id])
+        # current_cart.user = current_user;
         
-        flash.now[:notice] = "Product has been added to Cart successfully!"
+        # flash.now[:notice] = "Product has been added to Cart successfully!"
         # redirect to shopping cart or whereever
     end
 

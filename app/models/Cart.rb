@@ -1,7 +1,19 @@
 class Cart < ApplicationRecord
 
     belongs_to :user
-    has_many :items
+    # has_many :items
+
+    has_many :items, dependent: :destroy
+    has_many :products, through: :items
+
+    # LOGIC
+    def sub_total
+        sum = 0
+        self.items.each do |item|
+        sum+= item.total_price
+        end
+        return sum
+    end
 
     # def add_item(product_id)
     #     item = Item.find_by({product_id: product_id})

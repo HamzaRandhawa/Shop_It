@@ -52,7 +52,6 @@
                     <%= link_to 'Edit Profile',edit_user_path(current_user), class: "dropdown-item" %>
 
                     <%= link_to 'Delete Profile',user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: {confirm: "Are you Sure?"} %>
-
                 </div>
             </li>
             <% end %>
@@ -66,9 +65,11 @@
       
         <ul class="navbar-nav ml-auto">
             <% if logged_in? %>
-                <li class="nav-item ">
-                    <%= link_to current_user.username, user_path(current_user), class: 'nav-link' %>
-                </li>
+                <% if current_user.admin? %>
+                    <li class="nav-item ">
+                        <%=link_to "Orders", '/orders', class: 'nav-link' %>
+                    </li>
+                <% end %>
 
                 <li class="nav-item ">
                     <%= link_to "Contact Us", '/chat' ,class: 'nav-link' %>
@@ -88,6 +89,11 @@
 
             <% end %>
         </ul>
-        
     </div>
 </nav>
+
+<% if logged_in? %>
+    <%= render 'layouts/cart_button'-%>
+<% end %>
+<%= render 'layouts/messages'-%>
+

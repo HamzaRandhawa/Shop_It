@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   resources :items
 
   post '/add_to_cart/:product_id', to: 'carts#add_to_cart'
+  post 'items/:id/add' => "items#add_quantity", as: "item_add"
+  post 'items/:id/reduce' => "items#reduce_quantity", as: "item_reduce"
+
+  resources :orders, only: [:index, :show, :new, :create]
 
 
 end

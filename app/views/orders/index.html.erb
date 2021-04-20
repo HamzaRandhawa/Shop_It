@@ -1,0 +1,40 @@
+<%= render 'layouts/navigation'%>
+
+<div id="page-content">
+    <h1 class="text-center my-2">All Orders</h1>
+
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+  
+            <div class="col-md-6 mt-4 ">
+                <% @orders.each do |order| %>
+                
+                    <div class="card text-center shadow mb-5 bg-white rounded">
+                
+                        <div class="card-header font-italic">
+                            <b>Ordered: </b><%= time_ago_in_words(order.created_at)%> ago
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><b>Name: </b><%= order.name %></p>
+                            <p class="card-text"><b>Email: </b><%= order.email %></p>
+
+                            <ul>
+                                <% order.items.each do |item| %>
+                                    <li class="card-text"> <%= item.quantity %> x <%= item.product.name %></li>
+                                <% end %>
+                            </ul>
+
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>
+                                Ordered <%= time_ago_in_words(order.created_at)%> ago,
+                            </small>
+                        </div>
+                    </div>
+               
+                <% end -%>
+            </div>
+        </div>
+    </div>
+</div>

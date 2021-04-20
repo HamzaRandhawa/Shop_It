@@ -1,4 +1,5 @@
 
+
 <div  class="about-body d-flex text-center text-white bg-dark">
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
@@ -29,22 +30,31 @@
                         <%= link_to 'Log Out', logout_path, class: 'nav-link', method: :delete %>
 
                     <% end %>
+
                 </nav>
+
             </div>
         </header>
+        <%= render 'layouts/messages'-%>
+
         <main class="px-3 mt-5">
-        <div class="cover-container mx-auto">
 
-            <%= render 'layouts/categories_carousel'%>
+            <div class="cover-container mx-auto">
 
-
-    
-        </div>
+                <%= render 'layouts/categories_carousel'%>
+        
+            </div>
         </main>
 
         <footer class="mt-auto text-white-50">
-            <p>&copy; 2021 </p>
+            <p>&copy; 2021  @Hamza Noor Randhawa</p>
         </footer>
     </div>
+    <span class="mt-5 mr-1">
+        <% if logged_in? %>
+            <%= render 'layouts/cart_button'-%>
+        <% end %>
+    </span>
+
 </div>
 

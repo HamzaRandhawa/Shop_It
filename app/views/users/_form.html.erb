@@ -45,6 +45,13 @@
                             
                             <div class="valid-feedback">Looks Good!</div>
                         </div>
+
+                        <div class="mb-3">
+                            <%= f.label "Creating Admin Profile?", class: "form-label" -%>
+                            
+                            <%= f.select(:admin, ['true', 'false'], {}, { class: "custom-select form-control shadow rounded" }) %>
+                        </div>
+
                         <%= f.submit(@user.new_record? ? "Sign Up" :"Update Profile", class: "btn btn-success btn-block")-%>
 
                     <% end %>
