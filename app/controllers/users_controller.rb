@@ -29,7 +29,8 @@ class UsersController < ApplicationController
         
         if @user.save()
 
-            UserMailer.registration_confirmation(@user).deliver_now
+            # UserMailer.registration_confirmation(@user).deliver_now
+            UserMailer.with(user: @user).registration_confirmation.deliver_now
             # UserMailer.registration_confirmation(@user)
 
             flash[:notice] = "Please confirm your email address to continue"
