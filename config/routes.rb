@@ -30,5 +30,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :show, :new, :create]
 
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
 
 end

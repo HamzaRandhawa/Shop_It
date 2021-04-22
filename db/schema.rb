@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_005007) do
+ActiveRecord::Schema.define(version: 2021_04_21_181156) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_005007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
   end
 
 end

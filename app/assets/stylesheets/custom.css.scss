@@ -87,18 +87,24 @@ body
 //     // bottom: -2000;
 //     // left: 2000;
 // }
-.custom_footer
-{
+// .custom_footer
+// {
 
-    // position: -webkit-sticky; /* Safari */
-    // position: sticky;
-//   top: 0;
+//     // position: -webkit-sticky; /* Safari */
+//     // position: sticky;
+// //   top: 0;
 
-    position:fixed;
-    width: 100%;
-    bottom: 0;
-}
+//     // height: 10vh;
+//     // position:fixed;
+//     // width: 100%;
+//     // bottom: 0;
+//     // background: transparent;
+// }
 #author_link
 {
     color: grey;
+}
+
+.content_container {
+    min-height: 100vh;
 }
