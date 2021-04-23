@@ -13,10 +13,12 @@ consumer.subscriptions.create("ChatChannel", {
 
   received(data) {
 
-    console.log("Received data")
-    alert('Recieved');
+    // console.log("Received data")
+    // alert('Recieved');
+    // alert(data.mod_msg);
 
-    // $('#message-container').append(data.mod_msg);
+
+    $('#message-container').append(data.mod_msg);
     // scroll_bottom();
     // Called when there's incoming data on the websocket for this channel
   }

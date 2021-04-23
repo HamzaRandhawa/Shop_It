@@ -70,3 +70,5 @@ group :production do
   # Postgres database
   gem 'pg'
 end
+
+gem "font-awesome-rails"

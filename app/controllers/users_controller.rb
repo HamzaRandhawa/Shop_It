@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_action :require_login, except: [:show, :index, :destroy, :create, :new]
     before_action :is_authenticated_user, only: [:edit, :update, :destroy]
     before_action :require_logout, only: [:new]
+
     def index
         @users = User.all();
         # @users = User.paginate(page: params[:page], per_page: 4)
@@ -30,14 +31,17 @@ class UsersController < ApplicationController
         if @user.save()
 
             # UserMailer.registration_confirmation(@user).deliver_now
-            UserMailer.with(user: @user).registration_confirmation.deliver_now
-            # UserMailer.registration_confirmation(@user)
+            # UserMailer.with(user: @user).registration_confirmation.deliver_now
+            # # UserMailer.registration_confirmation(@user)
 
-            flash[:notice] = "Please confirm your email address to continue"
+            # flash[:notice] = "Please confirm your email address to continue"
+            # redirect_to root_path
+
+            flash[:notice] = "Thanks for joining! Welcome #{@user.username}!"
+            session[:user_id] = @user.id;
             redirect_to root_path
 
-            # flash[:notice] = "Thanks for joining! Welcome #{@user.username}!"
-            # session[:user_id] = @user.id;
+
 
             # # render plain: @user.inspect
             # redirect_to root_path
@@ -51,11 +55,12 @@ class UsersController < ApplicationController
 
     def confirm_email
         user = User.find_by_confirm_token(params[:id])
+        byebug;
         if user
           user.email_activate
           flash[:success] = "Welcome to the OpenShop! Your email has been confirmed.
           Please sign in to continue."
-          redirect_to signin_url
+          redirect_to login_url
         else
           flash[:error] = "Sorry. User does not exist"
           redirect_to root_url

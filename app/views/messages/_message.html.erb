@@ -1,0 +1,28 @@
+<ul class="m-b-0">
+
+    <li class="clearfix">
+        <%# If My message %>
+        <% if message.user == current_user %>   
+            <div class="message-data text-right">
+                <small><span class="message-data-time"><%= time_ago_in_words(message.created_at) %> ago</span></small>
+
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+            </div>
+            
+            <%# other-message and my-message order is reverse %>
+            <div class="message float-right other-message">
+                <%= message.body%> 
+            </div>
+        <% else %>
+            <div class="message-data">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                
+                <small><span class="message-data-time"><%= time_ago_in_words(message.created_at) %> ago</span></small>
+            
+            </div>
+            <div class="message my-message">
+                <%= message.body%> 
+            </div>
+        <% end %>
+    </li>
+</ul>
