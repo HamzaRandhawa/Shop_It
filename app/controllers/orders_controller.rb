@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
     def index
-        @orders = Order.all
+        if current_user.admin?
+            @orders = Order.all
+        else
+            @orders = Order.where(user_id: current_user.id)
+        end
     end
 
     def show
@@ -14,7 +18,6 @@ class OrdersController < ApplicationController
     def create
         #  render plain: params[:order]
 
-        flash[:notice] = "Your Purchase Package is Shipped and will reach you soon.";
         
         @order = Order.new(order_params)
         # byebug;
@@ -23,10 +26,16 @@ class OrdersController < ApplicationController
           item.cart_id = nil
         end
         @order.user_id = current_user.id
-        @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-        redirect_to root_path
+        if @order.save
+            flash[:notice] = "Your Purchase Package is Shipped and will reach you soon.";
+
+            Cart.destroy(session[:cart_id])
+            session[:cart_id] = nil
+            redirect_to root_path
+        else
+            flash[:alert] = "Ooooppss, something went wrong!"
+            render 'new'
+        end
       end
       
     private

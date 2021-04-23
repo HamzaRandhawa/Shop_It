@@ -75,13 +75,4 @@ class ProductsController < ApplicationController
         params.require(:product).permit(:name, :price, :description, category_ids: []);
     end
 
-
-    def is_Admin
-        if !current_user.admin?
-            flash[:alert] = "Only Admin can perform this action.";
-            redirect_to @product;
-        end
-    end
-
- 
 end

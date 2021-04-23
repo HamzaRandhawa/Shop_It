@@ -61,15 +61,17 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-
       
         <ul class="navbar-nav ml-auto">
             <% if logged_in? %>
-                <% if current_user.admin? %>
                     <li class="nav-item ">
-                        <%=link_to "Orders", '/orders', class: 'nav-link' %>
+                    <% if current_user.admin? %>
+                        <%=link_to "Shipments", '/orders', class: 'nav-link' %>
+                    <% else %>
+                        <%=link_to "Your Shipments", '/orders', class: 'nav-link' %>
+                    <% end %>
+
                     </li>
-                <% end %>
 
                 <li class="nav-item ">
                     <% if current_user.admin? %>

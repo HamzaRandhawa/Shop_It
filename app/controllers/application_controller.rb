@@ -47,4 +47,10 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def is_Admin
+        if !current_user.admin?
+            flash[:alert] = "Only Admin can perform this action.";
+            redirect_to root_path;
+        end
+    end
 end

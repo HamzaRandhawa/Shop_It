@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy]
     before_action :require_login, except: [:show, :index]
-    before_action :is_Admin, only: [:edit, :update, :destroy]
+    before_action :is_Admin, only: [:edit, :update, :destroy, :new, :create]
 
     def index
         @categories = Category.all();
@@ -74,14 +74,5 @@ class CategoriesController < ApplicationController
     def white_listed_params
         params.require(:category).permit(:name, :description);
     end
-
-
-    def is_Admin
-        if !current_user.admin?
-            flash[:alert] = "Only Admin can perform this action.";
-            redirect_to @category;
-        end
-    end
-
  
 end
