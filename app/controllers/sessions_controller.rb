@@ -12,24 +12,24 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:session][:password])
       
       
-            # if user.email_confirmed
+            if user.email_confirmed
 
-            #     session[:user_id] = user.id;
-            #     flash[:notice] = "Logged in Successfully";
-            #     redirect_to root_path
+                session[:user_id] = user.id;
+                flash[:notice] = "Logged in Successfully";
+                redirect_to root_path
 
-            #     # sign_in user
-            #     # redirect_back_or user
-            # else
-            #     flash.now[:alert] = 'Please activate your account by following the 
-            #     instructions in the account confirmation email you received to proceed'
-            #     render 'new'
-            # end
+                # sign_in user
+                # redirect_back_or user
+            else
+                flash.now[:alert] = 'Please activate your account by following the 
+                instructions in the account confirmation email you received to proceed'
+                render 'new'
+            end
             
-            session[:user_id] = user.id;
-            flash[:notice] = "Logged in Successfully";
+            # session[:user_id] = user.id;
+            # flash[:notice] = "Logged in Successfully";
           
-            redirect_to root_path
+            # redirect_to root_path
 
         else
             flash.now[:alert] = "Incorrect Email or Password";
