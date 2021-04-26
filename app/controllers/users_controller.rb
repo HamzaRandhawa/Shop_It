@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :require_login, except: [:show, :index, :destroy, :create, :new]
     before_action :is_authenticated_user, only: [:edit, :update, :destroy]
     before_action :require_logout, only: [:new]
-
+    
     def index
         @users = User.all();
         # @users = User.paginate(page: params[:page], per_page: 4)
@@ -31,11 +31,15 @@ class UsersController < ApplicationController
         if @user.save()
 
             # UserMailer.registration_confirmation(@user).deliver_now
-            # UserMailer.with(user: @user).registration_confirmation.deliver_now
+            # UserMailer.registration_confirmation(@user).deliver
+
+            # # UserMailer.with(user: @user).registration_confirmation.deliver_now
             # # UserMailer.registration_confirmation(@user)
 
             # flash[:notice] = "Please confirm your email address to continue"
             # redirect_to root_path
+
+
 
             flash[:notice] = "Thanks for joining! Welcome #{@user.username}!"
             session[:user_id] = @user.id;
@@ -54,8 +58,12 @@ class UsersController < ApplicationController
     end
 
     def confirm_email
+        # alert("Confirming");
+        # byebug;
         user = User.find_by_confirm_token(params[:id])
-        byebug;
+        # user = User.find_by_confirm_token(56)
+
+        # byebug;
         if user
           user.email_activate
           flash[:success] = "Welcome to the OpenShop! Your email has been confirmed.
@@ -118,6 +126,6 @@ class UsersController < ApplicationController
             redirect_to @user;
         end
     end
-   
+
 
 end
